@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu du Morpion - Projets Hadji</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    /* La grille 3x3 avec CSS Grid */
+    .grille {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 10px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+    .case {
+      width: 100px;
+      height: 100px;
+      background-color: #ffffff;
+      border: 3px solid #333;
+      font-size: 2.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.2s;
+    }
+    .case:hover {
+      background-color: #e2e8f0;
+    }
+    #statut {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #0056b3;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Jeu du Morpion</h1>
+  <div id="statut">Tour du joueur : MOMO</div>
+
+  <div class="grille">
+    <div class="case" data-index="0"></div>
+    <div class="case" data-index="1"></div>
+    <div class="case" data-index="2"></div>
+    <div class="case" data-index="3"></div>
+    <div class="case" data-index="4"></div>
+    <div class="case" data-index="5"></div>
+    <div class="case" data-index="6"></div>
+    <div class="case" data-index="7"></div>
+    <div class="case" data-index="8"></div>
+  </div>
+
+  <button onclick="recommencerPartie()">Recommencer la partie</button>
+
+  <script>
+    let joueurActuel = "MOMO";
+    let plateau = ["", "", "", "", "", "", "", "", ""];
+    let jeuActif = true;
+
+    // Toutes les combinaisons gagnantes (3 lignes, 3 colonnes, 2 diagonales)
+    const combinaisonsGagnantes = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]
+    ];
+
+    const cases = document.querySelectorAll('.case');
+    const statut = document.getElementById('statut');
+
+    cases.forEach(c => c.addEventListener('click', jouerCoup));
+
+    function jouerCoup(e) {
+      const index = e.target.getAttribute('data-index');
+
+      // Si la case est déjà occupée ou si la partie est finie, on ne fait rien
+      if (plateau[index] !== "" || !jeuActif) return;
+
+      // On enregistre le symbole dans le tableau et à l'écran
+      plateau[index] = joueurActuel;
+      e.target.textContent = joueurActuel;
+
+      verifierVictoire();
+    }
+
+    function verifierVictoire() {
+      let victoire = false;
+
+      for (let i = 0; i < combinaisonsGagnantes.length; i++) {
+        const [a, b, c] = combinaisonsGagnantes[i];
+        if (plateau[a] && plateau[a] === plateau[b] && plateau[a] === plateau[c]) {
+          victoire = true;
+          break;
+        }
+      }
+
+      if (victoire) {
+        statut.textContent = `🎉 Le joueur ${joueurActuel} a gagné !`;
+        jeuActif = false;
+        return;
+      }
+
+      // Si toutes les cases sont remplies sans gagnant
+      if (!plateau.includes("")) {
+        statut.textContent = "🤝 Match nul !";
+        jeuActif = false;
+        return;
+      }
+
+      // Alterner le joueur ( MOMO puis TOBI )
+      joueurActuel = joueurActuel === "MOMO" ? "TOBI" : "MOMO";
+      statut.textContent = `Tour du joueur : ${joueurActuel}`;
+    }
+
+    function recommencerPartie() {
+      joueurActuel = "MOMO";
+      plateau = ["", "", "", "", "", "", "", "", ""];
+      jeuActif = true;
+      statut.textContent = `Tour du joueur : ${joueurActuel}`;
+      cases.forEach(c => c.textContent = "");
+    }
+  </script>
+
+</body>
+</html>

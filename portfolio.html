@@ -1,0 +1,109 @@
+<!DOCTYP<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hadji Msoili - Portfolio BTS SIO SISR & Dev Web</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; }
+    
+    header { background: #0d1b2a; color: white; padding: 60px 20px; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; color: #4cc9f0; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+
+    section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    h2 { border-bottom: 3px solid #4cc9f0; display: inline-block; padding-bottom: 5px; margin-bottom: 25px; color: #0d1b2a; }
+
+    /* Grille de compétences */
+    .skills-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+    .skill-tag { background: #e9ecef; padding: 8px 16px; border-radius: 20px; font-weight: bold; color: #1b263b; border: 1px solid #ced4da; }
+    .skill-tag.cyber { background: #1b263b; color: #4cc9f0; }
+
+    /* Grille de projets */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .project-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid #4cc9f0; }
+    .project-card h3 { margin-bottom: 10px; color: #222; }
+    .project-card p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
+    .btn-project { display: inline-block; background: #28a745; color: white; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9rem; }
+    .btn-project:hover { background: #218838; }
+
+    /* Zone contact */
+    .contact-box { background: #ffffff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.08); }
+    .contact-list { list-style: none; line-height: 2.2; font-size: 1.05rem; }
+    .contact-list a { color: #0056b3; text-decoration: none; font-weight: bold; }
+
+    footer { text-align: center; padding: 30px; background: #0d1b2a; color: white; margin-top: 60px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hadji Msoili</h1>
+    <p>Étudiant BTS SIO SISR | Cybersécurité, Infrastructure & Développement Web</p>
+  </header>
+
+  <section id="about">
+    <h2>À propos</h2>
+    <p>Étudiant en <strong>BTS SIO option SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux) à Paris, je me passionne pour l'administration système, la cybersécurité et le développement d'applications web (HTML/CSS/JS, Python).</p>
+  </section>
+
+  <section id="skills">
+    <h2>Compétences & Outils</h2>
+    <div class="skills-grid">
+      <span class="skill-tag cyber">Systèmes & Réseaux (SISR)</span>
+      <span class="skill-tag cyber">Cybersécurité & Scripting</span>
+      <span class="skill-tag">HTML5 / CSS3</span>
+      <span class="skill-tag">JavaScript (DOM)</span>
+      <span class="skill-tag">Python 3</span>
+      <span class="skill-tag">VS Code / Git / GitHub</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Mes Réalisations</h2>
+    <div class="projects-grid">
+      
+      <!-- Projet 1 -->
+      <div class="project-card">
+        <h3>🚗 2H-DIAG HM</h3>
+        <p>Site vitrine professionnel dédié aux prestations de diagnostic électronique automobile.</p>
+        <a href="index.html" class="btn-project">Voir le projet</a>
+      </div>
+
+      <!-- Projet 2 -->
+      <div class="project-card">
+        <h3>🎮 Jeu du Morpion Interactif</h3>
+        <p>Mini-application web développée en JavaScript avec logique de jeu et gestion des événements.</p>
+        <a href="morpion.html" class="btn-project">Jouer au jeu</a>
+      </div>
+
+      <!-- Projet 3 -->
+      <div class="project-card">
+        <h3>🐍 Diagnostic & Devis Python</h3>
+        <p>Script Python de traitement automatique de devis et calcul de tarifs informatisés.</p>
+        <a href="#" class="btn-project">Voir le code</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Me Contacter</h2>
+    <div class="contact-box">
+      <p>Actuellement à la recherche d'un stage en <strong>Infrastructure, Sécurité ou Développement Web</strong>.</p>
+      <ul class="contact-list" style="margin-top: 15px;">
+        <li>📧 <strong>Email :</strong> <a href="mailto:hadjimsoilik@gmail.com">hadjimsoilik@gmail.com</a></li>
+        <li>📱 <strong>Téléphone :</strong> <a href="tel:0783180411">07 83 18 04 11</a></li>
+        <li>📍 <strong>Localisation :</strong> Paris (75012)</li>
+        <li>🎓 <strong>Formation :</strong> BTS SIO SISR</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Hadji Msoili - Portfolio Professionnel BTS SIO SISR</p>
+  </footer>
+
+</body>
+</html>
